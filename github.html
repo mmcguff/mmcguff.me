@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Github API Development</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+    
+        <!-- <div id="login"></div> -->
+        <div id="target"></div>
+
+
+        <button id="getGit" onclick="getGit()">Load</button>
+
+    </body>
+
+
+    <script>
+    
+    function getGit() {
+
+
+    var url = 'https://api.github.com/users/mmcguff/repos';
+    console.log(url);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var obj = JSON.parse(this.responseText);
+            
+            console.log(obj);
+
+
+            obj.forEach(function(i) {
+                              
+                $('#target').append('<b>'+i.name+'</b><br />' 
+                + '<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />' 
+                + '<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />' 
+                + '<p>'+i.updated_at+'</p><br />'
+                + '<p>'+i.description+'</p><br />'
+                + '<p>'+i.language+'</p><hr><br />')
+                // $('#repo_link').append('<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />')
+                // $('#repo_project').append('<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />')
+                // $('#repo_latest').append('<p>'+i.updated_at+'</p><br />')
+                // $('#repo_description').append('<p>'+i.description+'</p><br />')
+                // $('#repo_language').append('<p>'+i.language+'</p><br />')
+            })
+
+
+
+
+            // for(var i = 0; i < 21; i++)
+            // {
+            //     document.getElementById("repo_name").innerHTML = obj[i].name;
+            //     document.getElementById("repo_link").innerHTML = obj[i].html_url;
+            //     document.getElementById("repo_project").innerHTML = obj[i].homepage;
+            //     document.getElementById("repo_latest").innerHTML = obj[i].updated_at;
+            //     document.getElementById("repo_description").innerHTML =  obj[i].description;
+            //     document.getElementById("repo_language").innerHTML = obj[i].language;
+
+            // }
+        
+    
+
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+    //url = JSON.stringify(url);
+    //var obj = JSON.parse();
+
+    //  document.getElementById("weather").innerHTML = url;//obj.name;
+}
+
+    </script>
+
+
+
+
+</html>
