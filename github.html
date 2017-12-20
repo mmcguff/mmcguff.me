@@ -44,18 +44,22 @@
 
             obj.forEach(function(i) {
 
-                //this works as a collesce.  If null then it will automatically take the other value.  Kind of cool. 
+                //this works as a coalesce.  If null then it will automatically take the other value.  Kind of cool. 
                 var homepage = i.homepage || "";
                 var description = i.description || "";
                 var language = i.language || "";
                 
+
+                var updated_at = convertDate(i.updated_at);
+
+
                 //only returning repos that I want the public to see
                 if(i.private = 'false')
                 {
                     $('#target').append('<b>'+i.name+'</b><br />' 
                     + '<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />' 
                     + '<a href='+i.homepage+' target="_blank">'+homepage+'</a><br />' 
-                    + '<p>'+i.updated_at+'</p><br />'
+                    + '<p>'+updated_at+'</p><br />'
                     + '<p>'+description+'</p><br />'
                     + '<p>'+language+'</p><hr><br />')
                 }
@@ -86,11 +90,21 @@
     };
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-    //url = JSON.stringify(url);
-    //var obj = JSON.parse();
-
-    //  document.getElementById("weather").innerHTML = url;//obj.name;
 }
+
+
+    function convertDate(date)
+    {
+        var d = new Date(date);
+        var n = d.toDateString();
+        return n;
+    }
+
+
+
+
+
+
 
     </script>
 
