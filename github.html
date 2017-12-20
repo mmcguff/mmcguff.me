@@ -43,16 +43,21 @@
         
 
             obj.forEach(function(i) {
+
+                //this works as a collesce.  If null then it will automatically take the other value.  Kind of cool. 
+                var homepage = i.homepage || "";
+                var description = i.description || "";
+                var language = i.language || "";
                 
                 //only returning repos that I want the public to see
                 if(i.private = 'false')
                 {
                     $('#target').append('<b>'+i.name+'</b><br />' 
                     + '<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />' 
-                    + '<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />' 
+                    + '<a href='+i.homepage+' target="_blank">'+homepage+'</a><br />' 
                     + '<p>'+i.updated_at+'</p><br />'
-                    + '<p>'+i.description+'</p><br />'
-                    + '<p>'+i.language+'</p><hr><br />')
+                    + '<p>'+description+'</p><br />'
+                    + '<p>'+language+'</p><hr><br />')
                 }
                 // $('#repo_link').append('<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />')
                 // $('#repo_project').append('<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />')
