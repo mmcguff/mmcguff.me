@@ -39,7 +39,7 @@ marquee {
 
 
 
-<body class="w3-light-grey">
+<body  onload="getGit()" class="w3-light-grey">
   <!-- <marquee><i>"A smart, team player who gets things done. Everything you need in one package."</i></marquee> -->
 
   <!-- Page Container -->
@@ -207,11 +207,13 @@ marquee {
       </div>
 
       <!-- Right Column -->
-      <div class="w3-twothird">
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16">
-            <a href="" target="_blank"><i class="fa fa-github fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Projects on Github</h2></a>
-          <div class="w3-container">
+      <div class='w3-twothird'>
+        <div class='w3-container w3-card w3-white w3-margin-bottom'>
+        <h2 class='w3-text-grey w3-padding-16'>
+            <a href='https://github.com/mmcguff?tab=repositories' target='_blank'><i class='fa fa-github fa-fw w3-margin-right w3-xxlarge w3-text-blue'></i>Projects on Github</h2></a>
+    <div id="target"></div>
+
+          <!-- <div class="w3-container">
             <h5 class="w3-opacity">
               <b>Chat</b>
             </h5>
@@ -263,11 +265,13 @@ marquee {
                 HTML
               </span>
             </div>
-            <hr>
+            <hr> -->
 
-
+            <a href='https://github.com/mmcguff?tab=repositories' target='blank'>show more</a>
           </div>
-        </div>
+          
+       
+      
 
 
         <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -380,7 +384,7 @@ marquee {
 
   </div>
   <!-- /container -->
-
+  <script src="js/github.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
