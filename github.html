@@ -31,15 +31,29 @@
             
             console.log(obj);
 
+            obj.sort(function(a,b){
+                var c = new Date(a.updated_at);
+                var d = new Date(b.updated_at); 
+                return d-c;
+            });
+
+            // console.log(obj);
+
+
+        
 
             obj.forEach(function(i) {
-                              
-                $('#target').append('<b>'+i.name+'</b><br />' 
-                + '<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />' 
-                + '<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />' 
-                + '<p>'+i.updated_at+'</p><br />'
-                + '<p>'+i.description+'</p><br />'
-                + '<p>'+i.language+'</p><hr><br />')
+                
+                //only returning repos that I want the public to see
+                if(i.private = 'false')
+                {
+                    $('#target').append('<b>'+i.name+'</b><br />' 
+                    + '<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />' 
+                    + '<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />' 
+                    + '<p>'+i.updated_at+'</p><br />'
+                    + '<p>'+i.description+'</p><br />'
+                    + '<p>'+i.language+'</p><hr><br />')
+                }
                 // $('#repo_link').append('<a href='+i.html_url+' target="_blank">'+i.html_url+'</a><br />')
                 // $('#repo_project').append('<a href='+i.homepage+' target="_blank">'+i.homepage+'</a><br />')
                 // $('#repo_latest').append('<p>'+i.updated_at+'</p><br />')
